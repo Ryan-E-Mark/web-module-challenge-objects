@@ -15,10 +15,11 @@ The function should:
   Example createMenuItem('tacos', 8, 'Lunch') should return {name: 'tacos', price: 8, category: 'Lunch'}
 */
 // 3 parameters name, price, category
-function createMenuItem(/*Your code here*/){
-    /*Your code here*/
-    //return object with those three parameters
+function createMenuItem(name, price, category){
+    return {name, price, category};
 }
+
+// console.log(createMenuItem('pancakes', 5, 'breakfast'));
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 1b: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
 Invoke your function!
@@ -29,7 +30,10 @@ Test your createMenuItems function by doing the following:
   
   For example: createMenuItem("pizza",5,"lunch") would return this as the object: {name:"Pizza",price:5,category:"lunch"}
 */
-//not graded just invoking function from task 1a 3 times
+
+console.log(createMenuItem('Pad Thai', 12, 'Dinner'));
+console.log(createMenuItem('Pancakes', 5, 'Breakfast'));
+console.log(createMenuItem('Banh Mi', 7, 'Lunch'));
 
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 2: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
@@ -49,12 +53,16 @@ const burger = {
   name: "Burger", 
   price: 18, 
   category: "Lunch", 
-  //making a method called discount and giving teachers and students a discount and public a different discount. 
-  //you need to use this when referencing a key inside a method this.price
-  //not updating price, just returning the discounted price
-  
+  discount: function(string){
+    if (string === "teacher" || string === "student"){
+      return this.price * 0.75;
+    } else if (string === "public"){
+      return this.price * 0.9;
+    }
+  }
 }
 
+// console.log(burger.discount('public'));
 
 
 ///////////////Reviews (MVP)///////////////////
@@ -74,7 +82,7 @@ Using the reviews array above:
   1. log only Julius' feedback to the console - no function needed 
 */
 
-//not being graded just console.log 
+console.log(reviews[5]);
 
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 4: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 
@@ -97,10 +105,14 @@ Write a function that creates an object with name, rating, feedback, add the new
   4. should return the resulting array
 */
 //pass array, name, rating, feedback as parameters
-function addReview(/*Your Code Here */){
-  /*Your Code Here */
-  //push the object to the end of the array and return the resulting array
+
+function addReview(array, name, rating, feedback){
+  const newObject = {name, rating, feedback}
+  array.push(newObject);
+  return array;
 }
+
+// console.log(addReview(reviews, 'Sam', 2.5, 'There was a hair in my burger and the bun was stale.'))
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 6: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
 Write a function to return a review based on the index of the review in the array.
